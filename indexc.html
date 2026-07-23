@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¡Mis 2 Añitos! — Juliette Denisse</title>
+<meta name="description" content="Estás invitado a celebrar los 2 añitos de Juliette Denisse Milla Franco, el 8 de Agosto a las 4:00 PM.">
+<meta property="og:title" content="¡Mis 2 Añitos! — Juliette Denisse">
+<meta property="og:description" content="Nos complace invitarte a celebrar el 2º cumpleaños de Juliette Denisse el 8 de Agosto.">
+<meta property="og:image" content="juliette1.jpeg">
+<meta property="og:type" content="website">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --cream: #FFF5F8;
+    --warm: #FFE4EC;
+    --pink-light: #F8BBD0;
+    --pink-main: #E91E63;
+    --pink-dark: #C2185B;
+    --black-minnie: #1A1A1A;
+    --text: #2D2D2D;
+    --text-light: #5D404A;
+    --white: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--cream);
+    font-family: 'Quicksand', sans-serif;
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ══════════════════════════════
+     PANTALLA SOBRE (MINNIE STYLE)
+  ══════════════════════════════ */
+  #envelope-screen {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at center, #2d141e 0%, #1a0a10 60%, #0d0407 100%);
+    background-image: radial-gradient(rgba(255, 255, 255, 0.1) 15%, transparent 16%), radial-gradient(circle at center, #2d141e 0%, #1a0a10 60%, #0d0407 100%);
+    background-size: 30px 30px, 100% 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+    gap: 20px;
+    transition: opacity 0.8s ease;
+  }
+  #envelope-screen.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .env-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: clamp(1rem, 3vw, 1.4rem);
+    color: var(--pink-light);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  /* Bloque de nombre */
+  #guest-block {
+    text-align: center;
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  .guest-label {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #FFF;
+  }
+  .guest-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    color: var(--pink-light);
+    font-weight: 600;
+  }
+  .guest-count {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #FFF;
+    text-transform: uppercase;
+    background: var(--pink-main);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+  }
+
+  /* Sobre SVG */
+  .envelope-wrap { width: min(360px, 88vw); }
+  .env-svg { width: 100%; height: auto; }
+
+  /* Postal */
+  #postal {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: min(320px, 84vw);
+    gap: 12px;
+  }
+  #postal.show { display: flex; }
+  .postal-frame {
+    background: #fff;
+    padding: 12px 12px 18px;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.6);
+    border-radius: 12px;
+    border: 2px solid var(--pink-light);
+    width: 100%;
+  }
+  .postal-inner { border: 2px dashed var(--pink-main); padding: 4px; border-radius: 8px; }
+  .postal-img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    display: block;
+    background: var(--warm);
+    border-radius: 4px;
+  }
+  .postal-quote {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--pink-dark);
+    text-align: center;
+    margin-top: 10px;
+  }
+  .postal-tip {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: #FFF;
+    background: var(--pink-dark);
+    padding: 10px 18px;
+    border-radius: 20px;
+    border: 1px solid var(--pink-light);
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  /* Botón abrir */
+  .open-btn {
+    background: var(--pink-main);
+    border: 2px solid #FFF;
+    color: #FFF;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 16px 40px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s;
+    min-height: 52px;
+    min-width: 220px;
+    box-shadow: 0 6px 20px rgba(233, 30, 99, 0.4);
+  }
+  .open-btn:hover { background: var(--pink-dark); transform: translateY(-2px); }
+  .open-btn:disabled { opacity: 0.3; cursor: default; transform: none; }
+
+  /* ══════════════════════════════
+     PÁGINA PRINCIPAL
+  ══════════════════════════════ */
+  #main-page { display: none; }
+  #main-page.visible { display: block; }
+
+  /* Hero */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+  }
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+  }
+  .hero-photo { overflow: hidden; position: relative; background: var(--warm); }
+  .hero-photo img { width: 100%; height: 100%; min-height: 100vh; object-fit: cover; display: block; }
+  @media (max-width: 768px) {
+    .hero-photo img { min-height: 50vh; height: 50vh; }
+  }
+  .hero-photo::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, transparent 60%, var(--cream) 100%);
+  }
+  @media (max-width: 768px) {
+    .hero-photo::after { background: linear-gradient(to bottom, transparent 60%, var(--cream) 100%); }
+  }
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(30px, 5vw, 60px);
+    background: var(--cream);
+  }
+  .monogram {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 4px;
+    color: var(--pink-main);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    display: inline-block;
+    background: var(--warm);
+    padding: 6px 16px;
+    border-radius: 20px;
+    width: fit-content;
+  }
+  .hero-names {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 5vw, 4.2rem);
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--black-minnie);
+    margin-bottom: 20px;
+  }
+  .hero-names span {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+    font-size: 0.55em;
+    color: var(--pink-dark);
+    display: block;
+    margin-top: 8px;
+  }
+  .divider { width: 80px; height: 3px; background: var(--pink-main); margin: 20px 0; border-radius: 2px; }
+  .hero-verse {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--text-light);
+    line-height: 1.8;
+  }
+
+  /* Sección genérica */
+  .section { padding: clamp(50px, 8vw, 90px) clamp(20px, 5vw, 40px); }
+  .section-label {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--pink-main);
+    text-align: center;
+    margin-bottom: 40px;
+    display: block;
+  }
+
+  /* Eventos */
+  .events-wrap { max-width: 680px; margin: 0 auto; }
+  .event-card {
+    background: var(--white);
+    border-radius: 24px;
+    border: 2px solid var(--pink-light);
+    padding: clamp(36px, 6vw, 50px) clamp(24px, 5vw, 40px);
+    text-align: center;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(233, 30, 99, 0.08);
+  }
+  .event-card::before {
+    content: '';
+    position: absolute;
+    top: 8px; left: 8px; right: 8px; bottom: 8px;
+    border: 2px dashed var(--warm);
+    border-radius: 18px;
+    pointer-events: none;
+  }
+  .event-icon { font-size: 2.5rem; margin-bottom: 12px; }
+  .event-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--pink-dark);
+    margin-bottom: 16px;
+  }
+  .event-detail {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.25rem;
+    color: var(--text);
+    line-height: 1.6;
+    margin-bottom: 6px;
+  }
+  .event-place {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.15rem;
+    color: var(--text-light);
+    margin: 20px 0 10px;
+    line-height: 1.7;
+    font-weight: 500;
+    background: var(--cream);
+    padding: 16px 20px;
+    border-radius: 12px;
+  }
+
+  /* Countdown */
+  .countdown-section {
+    background: var(--black-minnie);
+    background-image: radial-gradient(rgba(255, 255, 255, 0.15) 15%, transparent 16%);
+    background-size: 24px 24px;
+    padding: clamp(50px, 8vw, 80px) 20px;
+    text-align: center;
+  }
+  .countdown-grid {
+    display: flex;
+    gap: clamp(16px, 4vw, 30px);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+  }
+  .count-item { 
+    text-align: center; 
+    min-width: 70px; 
+    background: rgba(255,255,255,0.05); 
+    padding: 15px 10px; 
+    border-radius: 12px;
+    border: 1px solid rgba(248, 187, 208, 0.2);
+  }
+  .count-num {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1;
+    display: block;
+  }
+  .count-unit {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--pink-light);
+    display: block;
+    margin-top: 8px;
+  }
+
+  /* Regalo */
+  .gift-section {
+    padding: clamp(50px, 8vw, 90px) clamp(20px, 5vw, 40px);
+    background: var(--cream);
+  }
+  .gift-inner { max-width: 680px; margin: 0 auto; text-align: center; }
+  .gift-icon {
+    width: 80px; height: 80px;
+    margin: 0 auto 20px;
+    border: 2px solid var(--pink-light);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2.2rem;
+    background: var(--white);
+    box-shadow: 0 8px 20px rgba(233, 30, 99, 0.1);
+  }
+  .gift-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 600;
+    color: var(--black-minnie);
+    margin-bottom: 8px;
+  }
+  .gift-sub {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--pink-main);
+    margin-bottom: 30px;
+  }
+  .gift-card {
+    background: var(--white);
+    border: 2px solid var(--pink-light);
+    border-radius: 24px;
+    padding: clamp(30px, 5vw, 50px) clamp(20px, 6vw, 50px);
+    position: relative;
+  }
+  .gift-card::before {
+    content: '';
+    position: absolute;
+    top: 8px; left: 8px; right: 8px; bottom: 8px;
+    border: 2px dashed var(--warm);
+    border-radius: 18px;
+    pointer-events: none;
+  }
+  .gift-text {
+    font-family: 'Quicksand', sans-serif;
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 24px;
+  }
+  .gift-highlight {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+    font-weight: 600;
+    color: var(--pink-dark);
+    display: block;
+    margin-bottom: 24px;
+    background: var(--warm);
+    padding: 12px;
+    border-radius: 12px;
+  }
+  .gift-footer {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.05rem;
+    color: var(--text-light);
+    line-height: 1.6;
+  }
+
+  /* Temática / Promesa */
+  .promise-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 50vh;
+  }
+  @media (max-width: 640px) { .promise-section { grid-template-columns: 1fr; } }
+  .promise-text {
+    background: var(--warm);
+    padding: clamp(40px, 6vw, 80px) clamp(24px, 5vw, 60px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .promise-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 600;
+    color: var(--pink-dark);
+    margin-bottom: 16px;
+  }
+  .promise-text p {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.2rem;
+    color: var(--text-light);
+    line-height: 1.8;
+  }
+  .promise-photo { overflow: hidden; background: var(--pink-light); }
+  .promise-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  /* Historia / Hitos */
+  .story-section { max-width: 720px; margin: 0 auto; }
+  .timeline { position: relative; padding-left: 36px; margin-top: 36px; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 6px; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--pink-light);
+    border-radius: 3px;
+  }
+  .timeline-item { position: relative; margin-bottom: 44px; }
+  .timeline-dot {
+    position: absolute;
+    left: -33px; top: 3px;
+    width: 16px; height: 16px;
+    background: var(--pink-main);
+    border-radius: 50%;
+    border: 3px solid var(--cream);
+    box-shadow: 0 0 0 2px var(--pink-main);
+  }
+  .timeline-year {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--pink-dark);
+    display: inline-block;
+    background: var(--warm);
+    padding: 4px 12px;
+    border-radius: 12px;
+    margin-bottom: 8px;
+  }
+  .timeline-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--black-minnie);
+    margin-bottom: 8px;
+  }
+  .timeline-text {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.15rem;
+    color: var(--text-light);
+    line-height: 1.7;
+  }
+
+  /* RSVP */
+  .rsvp-section { max-width: 620px; margin: 0 auto; text-align: center; }
+  .rsvp-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+    font-weight: 600;
+    color: var(--black-minnie);
+    margin-bottom: 8px;
+  }
+  .rsvp-sub {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--pink-main);
+    margin-bottom: 14px;
+  }
+  .rsvp-msg {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.15rem;
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: 36px;
+  }
+  .rsvp-info {
+    background: var(--white);
+    border: 2px solid var(--pink-light);
+    border-radius: 18px;
+    padding: 24px 28px;
+    text-align: left;
+    margin-bottom: 32px;
+  }
+  .rsvp-info p { font-family: 'Quicksand', sans-serif; font-size: 1.05rem; color: var(--text-light); margin-bottom: 6px; }
+  .rsvp-info strong { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 600; color: var(--pink-dark); display: block; margin-bottom: 6px; }
+  .rsvp-info span { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 600; color: var(--pink-main); letter-spacing: 2px; text-transform: uppercase; background: var(--warm); padding: 4px 10px; border-radius: 8px; }
+  
+  .rsvp-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .rsvp-btn {
+    padding: 16px 36px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    min-height: 52px;
+    min-width: 200px;
+    transition: all 0.2s;
+  }
+  .rsvp-btn:disabled { opacity: 0.4; cursor: default; transform: none; }
+  .btn-yes { background: var(--pink-main); color: var(--white); box-shadow: 0 6px 15px rgba(233, 30, 99, 0.3); }
+  .btn-yes:hover { background: var(--pink-dark); transform: translateY(-2px); }
+  .btn-no { background: transparent; color: var(--text-light); border: 2px solid #ccc; }
+  .btn-no:hover { border-color: var(--text-light); background: #f5f5f5; }
+  
+  @media (max-width: 480px) {
+    .rsvp-buttons { flex-direction: column; align-items: center; }
+    .rsvp-btn { width: 100%; max-width: 300px; }
+  }
+  .rsvp-response {
+    display: none;
+    padding: 36px;
+    background: var(--white);
+    border: 2px solid var(--pink-light);
+    border-radius: 20px;
+    margin-top: 24px;
+  }
+  .rsvp-response.show { display: block; }
+  .rsvp-response h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--pink-dark);
+    margin-bottom: 8px;
+  }
+  .rsvp-response p {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.15rem;
+    color: var(--text-light);
+    line-height: 1.7;
+  }
+  .rsvp-sending {
+    display: none;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--pink-main);
+    margin-top: 16px;
+  }
+  .rsvp-sending.show { display: block; }
+
+  /* Galería */
+  .gallery-section { max-width: 920px; margin: 0 auto; }
+  .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 24px; }
+  @media (max-width: 600px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
+  .gallery-item { aspect-ratio: 1; overflow: hidden; background: var(--warm); border-radius: 16px; border: 2px solid var(--white); box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s; }
+  .gallery-item:hover img { transform: scale(1.05); }
+
+  /* Footer */
+  footer {
+    background: var(--black-minnie);
+    padding: 50px 20px;
+    text-align: center;
+    border-top: 4px solid var(--pink-main);
+  }
+  .footer-names {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  .footer-date {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.1rem;
+    color: var(--pink-light);
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     PANTALLA DEL SOBRE
+══════════════════════════════════════ -->
+<div id="envelope-screen">
+
+  <p class="env-title">🎀 Juliette Denisse · 2 Añitos 🎀</p>
+
+  <div id="guest-block">
+    <p class="guest-label">¡Tienes una invitación muy especial!</p>
+    <h2 class="guest-name" id="guestNameEnv">Cargando...</h2>
+    <div class="guest-count" id="guestCountEnv"></div>
+  </div>
+
+  <!-- Sobre SVG -->
+  <div class="envelope-wrap" id="envelopeWrap">
+    <svg class="env-svg" id="envSVG" viewBox="0 0 400 320" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#ffccd8"/>
+          <stop offset="50%" style="stop-color:#f88bb0"/>
+          <stop offset="100%" style="stop-color:#e91e63"/>
+        </linearGradient>
+        <linearGradient id="flapGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#f48fb1"/>
+          <stop offset="100%" style="stop-color:#c2185b"/>
+        </linearGradient>
+        <linearGradient id="sealGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#2d2d2d"/>
+          <stop offset="100%" style="stop-color:#000000"/>
+        </linearGradient>
+        <filter id="envShadow">
+          <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="rgba(0,0,0,0.5)"/>
+        </filter>
+      </defs>
+      <rect x="20" y="110" width="360" height="180" rx="12" fill="url(#bodyGrad)" filter="url(#envShadow)"/>
+      <path d="M20,110 L200,220 L380,110 L380,290 L20,290 Z" fill="url(#bodyGrad)"/>
+      <polygon points="20,290 200,190 20,110" fill="rgba(194, 24, 91, 0.15)"/>
+      <polygon points="380,290 200,190 380,110" fill="rgba(194, 24, 91, 0.15)"/>
+      <polygon points="20,290 200,190 380,290" fill="rgba(136, 14, 79, 0.2)"/>
+      <g id="envFlap" style="transform-origin:200px 110px; transition: transform 0.5s ease;">
+        <polygon points="20,110 200,225 380,110" fill="url(#flapGrad)"/>
+      </g>
+      <circle id="envSeal" cx="200" cy="200" r="32" fill="url(#sealGrad)" style="transition:opacity 0.3s;"/>
+      <circle cx="200" cy="200" r="28" fill="none" stroke="#F8BBD0" stroke-width="2" style="transition:opacity 0.3s;" id="envSealRing"/>
+      <text id="envSealText" x="200" y="205" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="700" font-size="14" fill="#FFF" letter-spacing="1" style="transition:opacity 0.3s;">🎀 JD</text>
+    </svg>
+  </div>
+
+  <!-- Postal (oculta al inicio) -->
+  <div id="postal">
+    <div class="postal-frame">
+      <div class="postal-inner">
+        <img src="juliette1.jpeg" alt="Juliette Denisse" class="postal-img" onerror="this.style.display='none'">
+      </div>
+      <p class="postal-quote">"¡La magia de cumplir 2 añitos está por comenzar!"</p>
+    </div>
+    <p class="postal-tip">🎀 ¡Habrá pastel, juegos, risas y mucha diversión al estilo Minnie Mouse!</p>
+  </div>
+
+  <button class="open-btn" id="openBtn" disabled>✦ Abrir Invitación ✦</button>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     PÁGINA PRINCIPAL
+══════════════════════════════════════ -->
+<div id="main-page">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-photo">
+      <img src="juliette1.jpeg" alt="Juliette Denisse" onerror="this.style.visibility='hidden'">
+    </div>
+    <div class="hero-content">
+      <span class="monogram">🎀 MIS 2 AÑITOS 🎀</span>
+      <h1 class="hero-names">Juliette Denisse <span>Milla Franco</span></h1>
+      <div class="divider"></div>
+      <p class="hero-verse">"¡La magia de Disney y la alegría de cumplir 2 añitos se unen en un día muy especial! Me haría muy feliz que celebremos juntos una tarde llena de sorpresas, sonrisas y pastel."</p>
+    </div>
+  </section>
+
+  <!-- Eventos -->
+  <section class="section">
+    <div class="events-wrap">
+      <span class="section-label">Detalles de la Fiesta</span>
+      <div class="event-card">
+        <div class="event-icon">🎂</div>
+        <h3 class="event-title">¡Gran Celebración!</h3>
+        <p class="event-detail"><strong>Sábado, 8 de Agosto</strong></p>
+        <p class="event-detail" style="color:var(--pink-main); font-weight:700;">4:00 PM</p>
+        <div class="divider" style="margin:20px auto;"></div>
+        <p class="event-place">
+          <strong>Dirección:</strong><br>
+          3 y 4 avenida entre 9 y 10 calle Las champas, atrás del hotel Victoria.<br>
+          <span style="font-size: 0.95em; color: var(--pink-dark); display:block; margin-top:6px;">🏠 Casa de dos niveles a la par de una antena.</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Countdown -->
+  <section class="countdown-section">
+    <span class="section-label" style="color:var(--pink-light);">¡Ya casi llega el día!</span>
+    <div class="countdown-grid">
+      <div class="count-item"><span class="count-num" id="cd-days">00</span><span class="count-unit">Días</span></div>
+      <div class="count-item"><span class="count-num" id="cd-hours">00</span><span class="count-unit">Horas</span></div>
+      <div class="count-item"><span class="count-num" id="cd-min">00</span><span class="count-unit">Minutos</span></div>
+      <div class="count-item"><span class="count-num" id="cd-sec">00</span><span class="count-unit">Segundos</span></div>
+    </div>
+  </section>
+
+  <!-- Temática -->
+  <section class="promise-section">
+    <div class="promise-text">
+      <h2>Temática Minnie Mouse 🎀</h2>
+      <p>"Nuestra fiesta estará llena del encanto de Minnie Mouse. Puedes venir luciendo tus colores favoritos: rosado, blanco, negro ¡o incluso traer tus propias orejitas mágicas para las fotos!"</p>
+    </div>
+    <div class="promise-photo">
+      <img src="juliette2.jpeg" alt="Temática Minnie" onerror="this.style.display='none'">
+    </div>
+  </section>
+
+  <!-- Regalo -->
+  <section class="gift-section">
+    <div class="gift-inner">
+      <div class="gift-icon">🎁</div>
+      <h2 class="gift-title">Mesa de Regalos</h2>
+      <p class="gift-sub">Para consentir a la cumpleañera</p>
+      <div class="gift-card">
+        <p class="gift-text">Tu presencia, tu cariño y tu sonrisa son el mejor regalo que puedo recibir. Si además deseas tener un detalle especial conmigo, puedes traer el obsequio que nazca de tu corazón o aportar a mi:</p>
+        <span class="gift-highlight">🐷 Alcancía de Sueños</span>
+        <p class="gift-footer">¡Muchas gracias por ser parte del segundo capítulo<br>de mi gran aventura en este mundo!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Historia / Hitos -->
+  <section class="section story-section">
+    <span class="section-label">Cómo He Crecido</span>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <span class="timeline-year">1er Año</span>
+        <h4 class="timeline-title">El comienzo de mi historia</h4>
+        <p class="timeline-text">Aprendiendo a descubrir el mundo, dando mis primeros pasitos y llenando el hogar de infinitas risas y amor.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <span class="timeline-year">¡2 Añitos!</span>
+        <h4 class="timeline-title">Una niña grande y feliz</h4>
+        <p class="timeline-text">Ahora me encanta jugar, bailar, correr y celebrar junto a todas las personas especiales que me quieren tanto.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RSVP -->
+  <section class="section rsvp-section">
+    <h2 class="rsvp-title">Confirmar Asistencia</h2>
+    <p class="rsvp-sub">Juliette Denisse · 8 de Agosto</p>
+    <p class="rsvp-msg">Te agradecería muchísimo confirmar tu asistencia antes del 1 de Agosto para tener listo tu lugar y tus sorpresitas.</p>
+    <div class="rsvp-info">
+      <p>Pases reservados para celebrar el 8 de Agosto a nombre de:</p>
+      <strong id="rsvpName">—</strong>
+      <span id="rsvpCount">—</span>
+    </div>
+    <div class="rsvp-buttons" id="rsvpButtons">
+      <button class="rsvp-btn btn-yes" id="btnSi">¡Sí, ahí estaré!</button>
+      <button class="rsvp-btn btn-no" id="btnNo">No podré asistir</button>
+    </div>
+    <p class="rsvp-sending" id="rsvpSending">Enviando tu respuesta...</p>
+    <div class="rsvp-response" id="rsvpResponse">
+      <h3 id="rsvpResponseTitle"></h3>
+      <p id="rsvpResponseMsg"></p>
+    </div>
+  </section>
+
+  <!-- Galería -->
+  <section class="section gallery-section">
+    <span class="section-label">Mis Momentos Favoritos</span>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="momento1.jpeg" alt="Momento 1" onerror="this.closest('.gallery-item').style.display='none'"></div>
+      <div class="gallery-item"><img src="momento2.JPG"  alt="Momento 2" onerror="this.closest('.gallery-item').style.display='none'"></div>
+      <div class="gallery-item"><img src="momento3.JPG"  alt="Momento 3" onerror="this.closest('.gallery-item').style.display='none'"></div>
+    </div>
+  </section>
+
+  <footer>
+    <p class="footer-names">Juliette Denisse</p>
+    <p class="footer-date">8 de Agosto · ¡Los espero con mucho cariño!</p>
+  </footer>
+
+</div><!-- fin #main-page -->
+
+
+<script>
+// ─── CONFIGURACIÓN ───────────────────────────────────────────────
+var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyJ_-KX9AGyAPK84KkIhnaZ7DGOcSngdlX5hZuUlQtJ_QnHbp12w5ifeb666KCRP-r-/exec';
+
+var params     = new URLSearchParams(window.location.search);
+var guestId    = params.get('inv') || '';
+var guestName  = 'Estimado Invitado';
+var guestCount = 1;
+var step       = 'open'; // 'open' → 'enter'
+
+// ─── UTILIDAD JSONP ──────────────────────────────────────────────
+function jsonp(url, callback) {
+  var cbName = 'cb_' + Date.now() + '_' + Math.floor(Math.random() * 9999);
+  var script = document.createElement('script');
+  var timer  = setTimeout(function() {
+    cleanup();
+    callback(null);
+  }, 10000);
+
+  function cleanup() {
+    clearTimeout(timer);
+    delete window[cbName];
+    if (script.parentNode) script.parentNode.removeChild(script);
+  }
+
+  window[cbName] = function(data) {
+    cleanup();
+    callback(data);
+  };
+
+  script.onerror = function() { cleanup(); callback(null); };
+  script.src = url + (url.indexOf('?') > -1 ? '&' : '?') + 'callback=' + cbName;
+  document.body.appendChild(script);
+}
+
+// ─── ACTUALIZAR UI CON DATOS DEL INVITADO ────────────────────────
+function actualizarUI() {
+  document.getElementById('guestNameEnv').textContent  = guestName;
+  document.getElementById('guestCountEnv').textContent = guestCount + (guestCount > 1 ? ' personas' : ' persona');
+  document.getElementById('rsvpName').textContent      = guestName;
+  document.getElementById('rsvpCount').textContent     = guestCount + (guestCount > 1 ? ' personas' : ' persona');
+
+  var btn = document.getElementById('openBtn');
+  btn.disabled = false;
+}
+
+// ─── CARGAR INVITADO ─────────────────────────────────────────────
+function loadGuest() {
+  // Parámetros directos en URL (sin consulta al sheet)
+  var nombreParam = params.get('nombre');
+  var pParam      = params.get('p');
+  if (nombreParam) {
+    guestName  = decodeURIComponent(nombreParam);
+    guestCount = pParam ? parseInt(pParam) : 1;
+    actualizarUI();
+    return;
+  }
+
+  // Sin slug: desbloquear con nombre genérico
+  if (!guestId) {
+    actualizarUI();
+    return;
+  }
+
+  // Consultar Apps Script via JSONP
+  jsonp(SCRIPT_URL + '?action=getGuest&inv=' + encodeURIComponent(guestId), function(data) {
+    if (data) {
+      guestName  = data.nombre   || 'Estimado Invitado';
+      guestCount = data.personas || 1;
+    }
+    actualizarUI();
+
+    // Si ya respondió antes, mostrar estado en RSVP
+    if (data && data.respondio) {
+      mostrarYaRespondio(data.respuesta);
+    }
+  });
+}
+
+// ─── ANIMACIÓN DEL SOBRE ─────────────────────────────────────────
+document.getElementById('openBtn').addEventListener('click', function() {
+  if (step === 'open') {
+    abrirSobre();
+  } else {
+    entrarInvitacion();
+  }
+});
+
+function abrirSobre() {
+  step = 'waiting';
+  var btn  = document.getElementById('openBtn');
+  btn.disabled = true;
+
+  // Animar solapa
+  var flap = document.getElementById('envFlap');
+  flap.style.transform = 'rotateX(180deg)';
+
+  // Ocultar sello
+  setTimeout(function() {
+    document.getElementById('envSeal').style.opacity     = '0';
+    document.getElementById('envSealRing').style.opacity = '0';
+    document.getElementById('envSealText').style.opacity = '0';
+  }, 200);
+
+  // Ocultar sobre, mostrar postal
+  setTimeout(function() {
+    var wrap = document.getElementById('envelopeWrap');
+    wrap.style.transition = 'opacity 0.4s, transform 0.4s';
+    wrap.style.opacity    = '0';
+    wrap.style.transform  = 'scale(0.85)';
+    setTimeout(function() { wrap.style.display = 'none'; }, 400);
+
+    document.getElementById('postal').classList.add('show');
+  }, 500);
+
+  // Habilitar botón "Entrar"
+  setTimeout(function() {
+    btn.textContent = '🎀 Ver Invitación 🎀';
+    btn.disabled    = false;
+    step = 'enter';
+  }, 1200);
+}
+
+function entrarInvitacion() {
+  var screen = document.getElementById('envelope-screen');
+  screen.classList.add('hidden');
+  setTimeout(function() {
+    screen.style.display = 'none';
+    var main = document.getElementById('main-page');
+    main.classList.add('visible');
+    startCountdown();
+  }, 900);
+}
+
+// ─── COUNTDOWN ───────────────────────────────────────────────────
+function startCountdown() {
+  // Fecha objetivo: 8 de Agosto a las 4:00 PM
+  var target = new Date('2026-08-08T16:00:00');
+  function tick() {
+    var diff = target - new Date();
+    if (diff <= 0) {
+      document.querySelector('.countdown-section').innerHTML =
+        '<p style="font-family:\'Playfair Display\',serif;font-size:2.4rem;color:var(--pink-light); font-weight:600;">¡Hoy es mi fiesta de cumpleaños! 🎂🎀</p>';
+      return;
+    }
+    var d = Math.floor(diff / 86400000);
+    var h = Math.floor((diff % 86400000) / 3600000);
+    var m = Math.floor((diff % 3600000) / 60000);
+    var s = Math.floor((diff % 60000) / 1000);
+    document.getElementById('cd-days').textContent  = String(d).padStart(2,'0');
+    document.getElementById('cd-hours').textContent = String(h).padStart(2,'0');
+    document.getElementById('cd-min').textContent   = String(m).padStart(2,'0');
+    document.getElementById('cd-sec').textContent   = String(s).padStart(2,'0');
+  }
+  tick();
+  setInterval(tick, 1000);
+}
+
+// ─── RSVP ────────────────────────────────────────────────────────
+function asignarBotonesRSVP() {
+  var btnSi = document.getElementById('btnSi');
+  var btnNo = document.getElementById('btnNo');
+  if (btnSi) btnSi.onclick = function() { enviarRSVP('si'); };
+  if (btnNo) btnNo.onclick = function() { enviarRSVP('no'); };
+}
+asignarBotonesRSVP();
+
+function enviarRSVP(resp) {
+  var btns    = document.getElementById('rsvpButtons');
+  var sending = document.getElementById('rsvpSending');
+  if (btns)    btns.style.display = 'none';
+  if (sending) sending.classList.add('show');
+
+  var url = SCRIPT_URL
+    + '?action=rsvp'
+    + '&id='        + encodeURIComponent(guestId || guestName)
+    + '&nombre='    + encodeURIComponent(guestName)
+    + '&personas='  + encodeURIComponent(guestCount)
+    + '&respuesta=' + encodeURIComponent(resp);
+
+  // Mostrar respuesta inmediatamente
+  if (sending) sending.classList.remove('show');
+  mostrarRespuesta(resp);
+
+  // Enviar al Sheet
+  fetch(url, { method: 'GET', mode: 'no-cors' }).catch(function() {
+    var img = new Image();
+    img.src = url + '&t=' + Date.now();
+  });
+}
+
+function mostrarRespuesta(resp) {
+  var el = document.getElementById('rsvpResponse');
+  el.classList.add('show');
+
+  if (resp === 'si') {
+    document.getElementById('rsvpResponseTitle').textContent = '¡Qué alegría! 🎉🎀';
+    document.getElementById('rsvpResponseMsg').textContent   =
+      '¡Qué emoción! ' + guestName + ', nos hará muy felices contar con tu presencia para celebrar los 2 añitos de Juliette Denisse este 8 de Agosto.';
+  } else {
+    document.getElementById('rsvpResponseTitle').textContent = 'Lo entendemos 💛';
+    document.getElementById('rsvpResponseMsg').textContent   =
+      guestName + ', lamentamos mucho que no puedan acompañarnos, pero les mandamos un abrazo gigante y los tendremos muy presentes.';
+  }
+}
+
+function mostrarYaRespondio(respuestaAnterior) {
+  document.getElementById('rsvpButtons').style.display = 'none';
+  mostrarRespuesta(respuestaAnterior === 'si' ? 'si' : 'no');
+  if (respuestaAnterior === 'si') {
+    document.getElementById('rsvpResponseTitle').textContent = '¡Asistencia Confirmada! ✓';
+    document.getElementById('rsvpResponseMsg').textContent   =
+      guestName + ', ya tenemos registrada tu asistencia. ¡Te esperamos con mucha emoción el 8 de Agosto!';
+  } else {
+    document.getElementById('rsvpResponseTitle').textContent = 'Respuesta Registrada';
+    document.getElementById('rsvpResponseMsg').textContent   =
+      guestName + ', ya tenemos registrada tu respuesta. Muchas gracias por avisarnos.';
+  }
+}
+
+loadGuest();
+</script>
+</body>
+</html>
