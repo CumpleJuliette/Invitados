@@ -28,7 +28,11 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
-    background: var(--cream);
+    background-color: #FFF5F8;
+    /* Fondo con patrón de lunares estilo Minnie Mouse (Polka Dots) */
+    background-image: radial-gradient(#F8BBD0 18%, transparent 19%), radial-gradient(#F8BBD0 18%, transparent 19%);
+    background-size: 32px 32px;
+    background-position: 0 0, 16px 16px;
     font-family: 'Quicksand', sans-serif;
     color: var(--text);
     overflow-x: hidden;
@@ -41,7 +45,7 @@
     position: fixed;
     inset: 0;
     background: radial-gradient(circle at center, #2d141e 0%, #1a0a10 60%, #0d0407 100%);
-    background-image: radial-gradient(rgba(255, 255, 255, 0.1) 15%, transparent 16%), radial-gradient(circle at center, #2d141e 0%, #1a0a10 60%, #0d0407 100%);
+    background-image: radial-gradient(rgba(255, 255, 255, 0.12) 16%, transparent 17%), radial-gradient(circle at center, #2d141e 0%, #1a0a10 60%, #0d0407 100%);
     background-size: 30px 30px, 100% 100%;
     display: flex;
     flex-direction: column;
@@ -197,17 +201,18 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(to right, transparent 60%, var(--cream) 100%);
+    background: linear-gradient(to right, transparent 60%, rgba(255,245,248,0.95) 100%);
   }
   @media (max-width: 768px) {
-    .hero-photo::after { background: linear-gradient(to bottom, transparent 60%, var(--cream) 100%); }
+    .hero-photo::after { background: linear-gradient(to bottom, transparent 60%, rgba(255,245,248,0.95) 100%); }
   }
   .hero-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: clamp(30px, 5vw, 60px);
-    background: var(--cream);
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(5px);
   }
   .monogram {
     font-family: 'Montserrat', sans-serif;
@@ -260,18 +265,26 @@
     text-align: center;
     margin-bottom: 40px;
     display: block;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 8px 16px;
+    border-radius: 20px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.08);
   }
 
   /* Eventos */
   .events-wrap { max-width: 680px; margin: 0 auto; }
   .event-card {
-    background: var(--white);
+    background: rgba(255, 255, 255, 0.95);
     border-radius: 24px;
     border: 2px solid var(--pink-light);
     padding: clamp(36px, 6vw, 50px) clamp(24px, 5vw, 40px);
     text-align: center;
     position: relative;
     box-shadow: 0 10px 30px rgba(233, 30, 99, 0.08);
+    backdrop-filter: blur(5px);
   }
   .event-card::before {
     content: '';
@@ -353,7 +366,6 @@
   /* Regalo */
   .gift-section {
     padding: clamp(50px, 8vw, 90px) clamp(20px, 5vw, 40px);
-    background: var(--cream);
   }
   .gift-inner { max-width: 680px; margin: 0 auto; text-align: center; }
   .gift-icon {
@@ -383,11 +395,12 @@
     margin-bottom: 30px;
   }
   .gift-card {
-    background: var(--white);
+    background: rgba(255, 255, 255, 0.95);
     border: 2px solid var(--pink-light);
     border-radius: 24px;
     padding: clamp(30px, 5vw, 50px) clamp(20px, 6vw, 50px);
     position: relative;
+    backdrop-filter: blur(5px);
   }
   .gift-card::before {
     content: '';
@@ -422,7 +435,7 @@
     line-height: 1.6;
   }
 
-  /* Temática / Promesa */
+  /* Temática */
   .promise-section {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -430,7 +443,7 @@
   }
   @media (max-width: 640px) { .promise-section { grid-template-columns: 1fr; } }
   .promise-text {
-    background: var(--warm);
+    background: rgba(255, 228, 236, 0.9);
     padding: clamp(40px, 6vw, 80px) clamp(24px, 5vw, 60px);
     display: flex;
     flex-direction: column;
@@ -526,12 +539,13 @@
     margin-bottom: 36px;
   }
   .rsvp-info {
-    background: var(--white);
+    background: rgba(255, 255, 255, 0.95);
     border: 2px solid var(--pink-light);
     border-radius: 18px;
     padding: 24px 28px;
     text-align: left;
     margin-bottom: 32px;
+    backdrop-filter: blur(5px);
   }
   .rsvp-info p { font-family: 'Quicksand', sans-serif; font-size: 1.05rem; color: var(--text-light); margin-bottom: 6px; }
   .rsvp-info strong { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 600; color: var(--pink-dark); display: block; margin-bottom: 6px; }
@@ -555,7 +569,7 @@
   .rsvp-btn:disabled { opacity: 0.4; cursor: default; transform: none; }
   .btn-yes { background: var(--pink-main); color: var(--white); box-shadow: 0 6px 15px rgba(233, 30, 99, 0.3); }
   .btn-yes:hover { background: var(--pink-dark); transform: translateY(-2px); }
-  .btn-no { background: transparent; color: var(--text-light); border: 2px solid #ccc; }
+  .btn-no { background: rgba(255,255,255,0.8); color: var(--text-light); border: 2px solid #ccc; }
   .btn-no:hover { border-color: var(--text-light); background: #f5f5f5; }
   
   @media (max-width: 480px) {
@@ -565,10 +579,11 @@
   .rsvp-response {
     display: none;
     padding: 36px;
-    background: var(--white);
+    background: rgba(255, 255, 255, 0.95);
     border: 2px solid var(--pink-light);
     border-radius: 20px;
     margin-top: 24px;
+    backdrop-filter: blur(5px);
   }
   .rsvp-response.show { display: block; }
   .rsvp-response h3 {
@@ -727,7 +742,7 @@
 
   <!-- Countdown -->
   <section class="countdown-section">
-    <span class="section-label" style="color:var(--pink-light);">¡Ya casi llega el día!</span>
+    <span class="section-label" style="color:var(--pink-light); background:rgba(255,255,255,0.1);">¡Ya casi llega el día!</span>
     <div class="countdown-grid">
       <div class="count-item"><span class="count-num" id="cd-days">00</span><span class="count-unit">Días</span></div>
       <div class="count-item"><span class="count-num" id="cd-hours">00</span><span class="count-unit">Horas</span></div>
@@ -748,7 +763,7 @@
   </section>
 
   <!-- Regalo -->
-  <section class="gift-section">
+  <section class="section gift-section">
     <div class="gift-inner">
       <div class="gift-icon">🎁</div>
       <h2 class="gift-title">Mesa de Regalos</h2>
@@ -821,7 +836,7 @@
 
 <script>
 // ─── CONFIGURACIÓN ───────────────────────────────────────────────
-var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyJ_-KX9AGyAPK84KkIhnaZ7DGOcSngdlX5hZuUlQtJ_QnHbp12w5ifeb666KCRP-r-/exec';
+var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwbVUc_pR9F2WN1WaDELeDpjegd_qC0JX2gxJas0yamWxSkVTZyxByZ0k5ByEsIRXmnZw/exec';
 
 var params     = new URLSearchParams(window.location.search);
 var guestId    = params.get('inv') || '';
